@@ -9,17 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>dfs</display-name>
-    <servlet-name>dfs</servlet-name>
-    <servlet-class>dfs</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>dfs</servlet-name>
-    <url-pattern>/dfs</url-pattern>
-  </servlet-mapping>
-  <servlet>
+ <servlet>
     <description></description>
     <display-name>TestServlet</display-name>
     <servlet-name>TestServlet</servlet-name>

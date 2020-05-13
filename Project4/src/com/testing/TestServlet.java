@@ -66,11 +66,12 @@ public class TestServlet extends HttpServlet {
 
 		if (p.equals(pas)) {
 
-			res.sendRedirect("./form.html");
+			res.sendRedirect("./html/form.html");
 
 		} else {
 			// print content
 			res.sendRedirect("./Failure.jsp");
+			//return "forward:/newpage";
 
 		}
 
