@@ -1,4 +1,4 @@
- package com.testing;
+package com.testing;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// http://localhost:8081/swagger-ui.html
+//http://localhost:8081/1.html
 public class TestServlet extends HttpServlet {
-static String path = "C:\\Users\\Saurabh\\Desktop\\google\\original\\";
 	static String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
 	static String url = "jdbc:odbc:pass";
 	static Connection con;
@@ -24,7 +25,7 @@ static String path = "C:\\Users\\Saurabh\\Desktop\\google\\original\\";
 	static String driver1 = "com.mysql.jdbc.Driver";
 
 	static String url1 = "jdbc:mysql://localhost:3306/employee";
-	
+
 	public void init() throws ServletException {
 		System.out.println("TestServlet : init");
 	}
@@ -33,14 +34,11 @@ static String path = "C:\\Users\\Saurabh\\Desktop\\google\\original\\";
 		System.out.println("TestServlet : destroy");
 	}
 
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
-			throws IOException, ServletException {
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 
-		res.setContentType("text/html");
-
-		PrintWriter out = res.getWriter();
 		String lo = req.getParameter("login");
 		String pas = req.getParameter("password");
+		String p = "s";
 
 		try {
 			Class.forName(driver1);
@@ -53,50 +51,11 @@ static String path = "C:\\Users\\Saurabh\\Desktop\\google\\original\\";
 			String sql = "SELECT * FROM login WHERE name ='" + lo + "'";
 			rs = s.executeQuery(sql);
 
-			String p = "s";
 			// String p;
 
 			while (rs.next()) {
 				p = rs.getString(2);
 
-			}
-			if (p.equals(pas)) {
-				// print content
-				out.println("<html><head>");
-				out.println("<title>TestServlet ( by ");
-				out.println(" )</title>");
-				out.println("<style>body, p { font-family:tahoma;");
-				out.println(" font-size:12pt; }</style>");
-				out.println("</head>");
-				out.println("<body>");
-				out.println("<p>Welcome ");
-				out.println(lo);
-				out.println(" ) :</p>");
-				out.println(lo + pas);
-				out.println("</body></html>");
-
-				res.sendRedirect("./form.html");
-
-				out.close();
-
-			} else {
-				// print content
-				out.println("<html><head>");
-				out.println("<title>TestServlet ( by ");
-
-				out.println(" )</title>");
-				out.println("<style>body, p { font-family:tahoma;");
-				out.println(" font-size:12pt; }</style>");
-				out.println("</head>");
-				out.println("<body>");
-
-				out.println("<p>You r not registered user saurabh");
-
-				out.println(" ) :</p>");
-				out.println(lo + pas);
-				out.println("</body></html>");
-
-				out.close();
 			}
 
 		}
@@ -105,10 +64,19 @@ static String path = "C:\\Users\\Saurabh\\Desktop\\google\\original\\";
 			System.out.println(ce);
 		}
 
+		if (p.equals(pas)) {
+
+			res.sendRedirect("./form.html");
+
+		} else {
+			// print content
+			res.sendRedirect("./Failure.jsp");
+
+		}
+
 	}
 
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
-			throws IOException, ServletException {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		doGet(req, res);
 	}
 }
