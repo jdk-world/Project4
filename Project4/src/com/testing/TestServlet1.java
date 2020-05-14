@@ -28,7 +28,7 @@ public class TestServlet1 extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("TestServlet2");
 		rd.forward(request, response);// method may be include or forward
 
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
