@@ -19,16 +19,6 @@
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/TestServlet</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>TestServlet1</display-name>
-    <servlet-name>TestServlet1</servlet-name>
-    <servlet-class>com.testing.TestServlet1</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TestServlet1</servlet-name>
-    <url-pattern>/TestServlet1</url-pattern>
-  </servlet-mapping>
   
    <servlet>
     <description></description>
@@ -42,24 +32,4 @@
   </servlet-mapping>
   
   
-  <servlet>
-    <description></description>
-    <display-name>TestServlet3</display-name>
-    <servlet-name>TestServlet3</servlet-name>
-    <servlet-class>com.testing.TestServlet3</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TestServlet3</servlet-name>
-    <url-pattern>/TestServlet3</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>TestServlet4</display-name>
-    <servlet-name>TestServlet4</servlet-name>
-    <servlet-class>com.testing.TestServlet4</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TestServlet4</servlet-name>
-    <url-pattern>/TestServlet4</url-pattern>
-  </servlet-mapping>
-</web-app>
+ </web-app>
