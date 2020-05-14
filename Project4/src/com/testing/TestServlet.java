@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,7 @@ public class TestServlet extends HttpServlet {
 		String lo = req.getParameter("login");
 		String pas = req.getParameter("password");
 		String p = "s";
-
+		RequestDispatcher rd = req.getRequestDispatcher("/TestServlet2");
 		try {
 			Class.forName(driver1);
 		} catch (ClassNotFoundException ce) {
@@ -68,10 +69,15 @@ public class TestServlet extends HttpServlet {
 
 			res.sendRedirect("./form.html");
 
+		}
+
+		if (p.equals("gupt")) {
+			rd.forward(req, res);// method may be include or forward
+
 		} else {
 			// print content
 			res.sendRedirect("./Failure.jsp");
-			//return "forward:/newpage";
+			// return "forward:/newpage";
 
 		}
 
