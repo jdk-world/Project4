@@ -37,9 +37,7 @@ public class TestServlet2 extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws IOException, ServletException {
 
-		res.setContentType("text/html");
-
-		PrintWriter out = res.getWriter();
+		
 
 		String lo = req.getParameter("sourceofcandidate");
 		String pas = req.getParameter("name");
@@ -70,39 +68,8 @@ public class TestServlet2 extends HttpServlet {
 
 		String gsk = req.getParameter("genericskills");
 
-		try {
-			Class.forName(driver);
-		} catch (ClassNotFoundException ce) {
-			System.out.println(ce);
-		}
-		try {
-			con = DriverManager.getConnection(url);
-			s = con.createStatement();
-			String sql = "insert into passw ( sourceofcandidate,name,source,location,email,workphone,cellno,availability,benchcandidate,skills,experience,notes,code,rate,status,homephone,ext,relocation,genericskills) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, lo);
-			stmt.setString(2, pas);
-			stmt.setString(3, sor);
-			stmt.setString(4, loc);
-			stmt.setString(5, id);
-			stmt.setString(6, ph);
-			stmt.setString(7, no);
-			stmt.setString(8, avl);
-			stmt.setString(9, ben);
-			stmt.setString(10, skl);
-			stmt.setString(11, ex);
-			stmt.setString(12, not);
-
-			stmt.setString(13, code);
-			stmt.setString(14, rate);
-			stmt.setString(15, st);
-			stmt.setString(16, hom);
-			stmt.setString(17, ext);
-			stmt.setString(18, rel);
-			stmt.setString(19, gsk);
-
-			int i = stmt.executeUpdate();
 			// System.out.println("Record for "+lo+" has been inserted");
+		    PrintWriter out = res.getWriter();
 
 			out.println("<html><head>");
 
@@ -189,14 +156,11 @@ public class TestServlet2 extends HttpServlet {
 
 			out.println("</body></html>");
 
-			con.commit();
 		}
 
-		catch (SQLException ce) {
-			System.out.println(ce);
-		}
+		
 
-	}
+	
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws IOException, ServletException {

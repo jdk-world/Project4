@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
- <servlet>
+  <servlet>
     <description></description>
     <display-name>TestServlet</display-name>
     <servlet-name>TestServlet</servlet-name>
@@ -19,8 +19,7 @@
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/TestServlet</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>TestServlet2</display-name>
     <servlet-name>TestServlet2</servlet-name>
@@ -30,6 +29,14 @@
     <servlet-name>TestServlet2</servlet-name>
     <url-pattern>/TestServlet2</url-pattern>
   </servlet-mapping>
-  
-  
- </web-app>
+  <servlet>
+    <description></description>
+    <display-name>TestServlet1</display-name>
+    <servlet-name>TestServlet1</servlet-name>
+    <servlet-class>com.testing.TestServlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServlet1</servlet-name>
+    <url-pattern>/TestServlet1</url-pattern>
+  </servlet-mapping>
+</web-app>

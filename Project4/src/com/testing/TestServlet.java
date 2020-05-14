@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 // http://localhost:8081/swagger-ui.html
 //http://localhost:8081/1.html
+//http://andresesfm.github.io/blog/2014/09/11/servlet-to-spring-mvc-migration-guide/
 public class TestServlet extends HttpServlet {
 	static String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
 	static String url = "jdbc:odbc:pass";
@@ -40,7 +41,7 @@ public class TestServlet extends HttpServlet {
 		String lo = req.getParameter("login");
 		String pas = req.getParameter("password");
 		String p = "s";
-		RequestDispatcher rd = req.getRequestDispatcher("/TestServlet2");
+		RequestDispatcher rd = req.getRequestDispatcher("TestServlet2");
 		try {
 			Class.forName(driver1);
 		} catch (ClassNotFoundException ce) {
@@ -71,10 +72,12 @@ public class TestServlet extends HttpServlet {
 
 		}
 
-		if (p.equals("gupt")) {
+		else if (pas.equals("gupt")) {
 			rd.forward(req, res);// method may be include or forward
 
-		} else {
+		} 
+		
+		else {
 			// print content
 			res.sendRedirect("./Failure.jsp");
 			// return "forward:/newpage";
