@@ -66,7 +66,7 @@ public class TestServlet extends HttpServlet {
 
 		if (p.equals(pas)) {
 
-			res.sendRedirect("./html/form.html");
+			res.sendRedirect("./form.html");
 
 		} else {
 			// print content
